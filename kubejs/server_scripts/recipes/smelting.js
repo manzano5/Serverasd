@@ -24,8 +24,8 @@ ServerEvents.recipes(event => {
  
   /**
    * Replaces the input of a smelting / blasting recipe.
-   * @param {string|Ingredient} from Original input.
-   * @param {string|Ingredient} to New input.
+   * @param {string|InputItem} from Original input.
+   * @param {string|InputItem} to New input.
    */
   const replaceSmeltingInput = (from, to) => {
     event.replaceInput({type: 'minecraft:blasting'}, from, to);
@@ -46,7 +46,7 @@ ServerEvents.recipes(event => {
   /**
    * Adds a smelting recipe for the furnace.
    * @param {(string|Item)} output Resulting smelted item.
-   * @param {(string|Ingredient)} input Ingredient to be smelted.
+   * @param {(string|InputItem)} input Ingredient to be smelted.
    * @param {number} [xp] Experience given by smelting the item.
    */
    const smelt = (output, input, xp) => {
@@ -60,7 +60,7 @@ ServerEvents.recipes(event => {
   /**
    * Adds a blasting recipe to the vanilla blast furnace.
    * @param {(string|Item)} output Resulting blasted item.
-   * @param {(string|Ingredient)} input Ingredient to be blasted.
+   * @param {(string|InputItem)} input Ingredient to be blasted.
    * @param {number} [xp] Experience given by blasting the item.
    */
   const blast = (output, input, xp) => {
@@ -74,7 +74,7 @@ ServerEvents.recipes(event => {
   /**
    * Adds a smelting recipe to both the furnace and blast furnace.
    * @param {(string|Item)} output Resulting smelted item.
-   * @param {(string|Ingredient)} input Ingredient to be smelted.
+   * @param {(string|InputItem)} input Ingredient to be smelted.
    * @param {number} [xp] Experience given by smelting the item.
    */
   const smeltAndBlast = (output, input, xp) => {
@@ -133,6 +133,28 @@ ServerEvents.recipes(event => {
     event.remove({id: `immersiveengineering:smelting/ingot_${metal}_from_blasting2`});
     event.remove({id: `immersiveengineering:smelting/ingot_${metal}_from_blasting3`});
   });
+
+  // Remove other redundant IE smelting / blassting.
+  event.remove({id: 'immersiveengineering:smelting/ingot_silver2'});
+  event.remove({id: 'immersiveengineering:smelting/ingot_silver_from_blasting_2'});
+
+  // Remove redundant Create smelting / blasting recipes.
+  event.remove({id: 'create:blasting/ingot_lead_compat_immersiveengineering'});
+  event.remove({id: 'create:blasting/ingot_uranium_compat_immersiveengineering'});
+  event.remove({id: 'create:smelting/ingot_lead_compat_immersiveengineering'});
+  event.remove({id: 'create:smelting/ingot_uranium_compat_immersiveengineering'});
+
+  // Remove Darker Depths smelting / blasting.
+  event.remove({id: 'darkerdepths:silver_ingot_from_smelting_aridrock_silver_ore'});
+  event.remove({id: 'darkerdepths:silver_ingot_from_smelting_limestone_silver_ore'});
+  event.remove({id: 'darkerdepths:silver_ingot_from_blasting_aridrock_silver_ore'});
+  event.remove({id: 'darkerdepths:silver_ingot_from_blasting_limestone_silver_ore'});
+
+  // Remove Galosphere smelting / blasting.
+  event.remove({id: 'galosphere:silver_ingot_from_blasting_silver_ore'});
+  event.remove({id: 'galosphere:silver_ingot_from_smelting_silver_ore'});
+  event.remove({id: 'galosphere:silver_ingot_from_blasting_raw_silver'});
+  event.remove({id: 'galosphere:silver_ingot_from_smelting_raw_silver'});
 
   // Allow Ash Bricks to be made by smelting any ash.
   replaceSmeltingInput('supplementaries:ash', '#valhelsia:ash');

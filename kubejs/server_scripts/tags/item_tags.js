@@ -66,7 +66,7 @@ ServerEvents.tags('item', event => {
     'moreminecarts:silica_steel_block',
   ]);
 
-  // -----Dusts -----
+  // ----- Dusts -----
   event.add('forge:dusts', [
     'botania:pixie_dust',
     'waystones:warp_dust',
@@ -78,6 +78,27 @@ ServerEvents.tags('item', event => {
 
   event.add('forge:dusts/warp', [
     'waystones:warp_dust',
+  ]);
+
+  // ----- Logs / Wood -----
+  event.add('forge:stripped_logs', [
+    'forbidden_arcanus:stripped_cherry_log',
+    'forbidden_arcanus:stripped_aurum_log',
+    'upgrade_aquatic:stripped_driftwood_log',
+  ]);
+
+  event.add('forge:stripped_wood', [
+    'forbidden_arcanus:stripped_cherry_wood',
+    'forbidden_arcanus:stripped_aurum_wood',
+    'upgrade_aquatic:stripped_driftwood',
+  ]);
+
+  event.add('minecraft:logs_that_burn', [
+    'forbidden_arcanus:aurum_log',
+    'forbidden_arcanus:stripped_aurum_log',
+    'forbidden_arcanus:cherry_log',
+    'forbidden_arcanus:thin_cherry_log',
+    'forbidden_arcanus:stripped_cherry_log',
   ]);
 
    
@@ -155,5 +176,10 @@ ServerEvents.tags('item', event => {
     'blue_skies:cut_midnight_sandstone',
     'blue_skies:smooth_midnight_sandstone',
     'blue_skies:midnight_sandstone_pillar',
+  ]);
+
+  // Create Slice & Dice
+  event.add('sliceanddice:allowed_tools', [
+    'galosphere_delight:silver_kitchen_hammer',
   ]);
 });

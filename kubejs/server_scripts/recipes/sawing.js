@@ -22,10 +22,10 @@ ServerEvents.recipes(event => {
   /**
    * Creates a sawing recipe for multiple mods.
    * @param {(string|Item)} output The resulting item(s).
-   * @param {(string|Ingredient)} input A single ingredient to saw.
+   * @param {(string|InputItem)} input A single ingredient to saw.
    */
   const saw = (output, input) => {
-    event.recipes.immersiveengineeringSawmill(output, input);
+    event.recipes.immersiveengineering.sawmill(output, input);
 
     // TODO: Expand this to allow secondary outputs and stripping.
     // For future reference:

@@ -27,6 +27,9 @@ JEIEvents.hideItems(event => {
     'minecraft:structure_block',
     'minecraft:structure_void',
 
+    // Advanced Peripherals
+    'advancedperipherals:rs_bridge',
+
     // Applied Energistics 2
     'ae2:facade',
 
@@ -126,6 +129,13 @@ JEIEvents.hideItems(event => {
 
     // Farmer's Delight
     'farmersdelight:rope',
+
+    // Galosphere
+    'galosphere:raw_silver_block',
+    //'galosphere:raw_silver', // TODO: Remove only after changing loot table.
+    'galosphere:silver_ingot',
+    'galosphere:silver_nugget',
+    'galosphere:silver_block',
 
     // Immersive Engineering
     'immersiveengineering:ore_lead',

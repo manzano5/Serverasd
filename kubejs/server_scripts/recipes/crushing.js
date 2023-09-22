@@ -18,21 +18,25 @@
  * Crushing Recipe Event Handler
  */
  ServerEvents.recipes(event => {
+  const ID_PREFIX = 'valhelsia:crushing/';
+
   /**
    * Creates a Crushing recipe for multiple mods.
    * Note: This currently only works for simple recipes that have one input ingredient and one output item type.
    * @param {(string|Item)} output The resulting crushed item(s).
-   * @param {(string|Ingredient)} input A single ingredient to crush.
+   * @param {(string|InputItem)} input A single ingredient to crush.
    */
   const crush = (output, input) => {
+    let itemID = `${OutputItem.of(output).item.id.replace(':', '/')}_from_${InputItem.of(input).ingredient.first.id.replace(':', '_')}`;
+
     // TODO: Rework this to allow secondary outputs to work - not entirely simple since IE and Create have very
     //       different approaches to how they handle this (and Mekanism doesn't appear to handle it at all).
     //       Recipes with secondary outputs might end up with a separate function instead of this one.
-    event.recipes.immersiveengineeringCrusher(output, input);
-    // Temporary fix: KubeJS Mekanism is very broken right now.
-    //event.recipes.mekanismCrushing(output, input);
-    event.recipes.createCrushing(output, input);
-    // TODO: Add Ars Nouveau Crushing.
+
+    event.recipes.immersiveengineering.crusher(output, input, [], 3200).id(`${ID_PREFIX}immersiveengineering/${itemID}`);
+    event.recipes.mekanism.crushing(output, input).id(`${ID_PREFIX}mekanism/${itemID}`);
+    event.recipes.create.crushing(output, input).id(`${ID_PREFIX}create/${itemID}`);
+    // TODO: Add Ars Nouveau Crushing (note: maybe separate, as it works very differently to the above).
     // TODO: Add MineColonies Crushing.
   };
 
@@ -45,7 +49,8 @@
    * @param {(string|Ingredient)} input A single ingredient to mill.
    */
   const mill = (output, input) => {
-    event.recipes.createMilling(output, input);
+    let itemID = `${OutputItem.of(output).item.id.replace(':', '/')}_from_${InputItem.of(input).ingredient.first.id.replace(':', '_')}`;
+    event.recipes.create.milling(output, input).id(`${ID_PREFIX}create/milling/${itemID}`);
     crush(output, input);
   };
 
@@ -91,4 +96,5 @@
   mill('4x minecraft:rotten_flesh', 'biomesoplenty:flesh');
   mill('9x minecraft:bone_meal', 'blue_skies:azulfo_horn');
   mill('10x minecraft:bone_meal', 'upgrade_aquatic:thrasher_tooth');
+  mill('4x minecraft:bone_meal', 'alexsmobs:fish_bones');
 });

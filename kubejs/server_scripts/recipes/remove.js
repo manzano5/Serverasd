@@ -40,11 +40,15 @@ ServerEvents.recipes(event => {
 
     // Blue Skies
     'blue_skies:cake_compat', // Replaced with a different recipe.
+    'blue_skies:furnace_compat', // Quark provides an alternative.
 
     // Create
 
     // Darker Depths
-    'darkerdepths:rope',
+    'darkerdepths:rope', // Replaced with Supplementaries Rope
+    'darkerdepths:silver_block', // Redundant
+    'darkerdepths:silver_ingot', // Redundant
+    'darkerdepths:raw_silver',
 
     // Decorative Blocks
     'decorative_blocks:chain', // Replaced with a different recipe.
@@ -55,21 +59,43 @@ ServerEvents.recipes(event => {
     'ecologics:surface_moss',
     'ecologics:moss_block',
 
+    // Galosphere
+    'galosphere:raw_silver',
+    'galosphere:raw_silver_block',
+    'galosphere:silver_ingot_from_nuggets',
+    'galosphere:silver_ingot',
+    'galosphere:silver_nugget',
+
     // Immersive Engineering
     'immersiveengineering:crafting/paper_from_sawdust', // Removed since Mekanism method made this redundant.
-    'immersiveengineering:crafting/ingot_steel_to_storage_steel', // Redundant.
-    'immersiveengineering:crafting/ingot_lead_to_storage_lead', // Redundant.
-    'immersiveengineering:crafting/ingot_uranium_to_storage_uranium', // Redundant.
-    'immersiveengineering:crafting/nugget_steel_to_steel_ingot', // Redundant.
-    'immersiveengineering:crafting/nugget_copper_to_copper_ingot', // Redundant.
-    'immersiveengineering:crafting/nugget_lead_to_lead_ingot', // Redundant.
-    'immersiveengineering:crafting/nugget_uranium_to_uranium_ingot', // Redundant.
-    'immersiveengineering:crafting/ingot_steel_to_nugget_steel', // Redundant.
-    'immersiveengineering:crafting/ingot_copper_to_nugget_copper', // Redundant.
-    'immersiveengineering:crafting/ingot_lead_to_nugget_lead', // Redundant.
-    'immersiveengineering:crafting/ingot_uranium_to_nugget_uranium', // Redundant.
-    'immersiveengineering:crusher/nether_wart', // Default recipe leads to dupe exploit.
     'immersiveengineering:metalpress/blaze_rod', // Replaced to avoid blaze powder duping - changed from 4 dust to 6.
+    
+    // Redundant IE Metal Recipes (either duplicate or replaced)
+    'immersiveengineering:crafting/ingot_lead_to_storage_lead',
+    'immersiveengineering:crafting/ingot_uranium_to_storage_uranium',
+    'immersiveengineering:crafting/ingot_silver_to_storage_silver',
+    'immersiveengineering:crafting/ingot_steel_to_storage_steel',
+
+    'immersiveengineering:crafting/storage_lead_to_ingot_lead',
+    'immersiveengineering:crafting/storage_uranium_to_ingot_uranium',
+    'immersiveengineering:crafting/storage_steel_to_ingot_steel',
+
+    'immersiveengineering:crafting/nugget_copper_to_copper_ingot',
+    'immersiveengineering:crafting/nugget_lead_to_ingot_lead',
+    'immersiveengineering:crafting/nugget_uranium_to_ingot_uranium',
+    'immersiveengineering:crafting/nugget_silver_to_ingot_silver',
+    'immersiveengineering:crafting/nugget_steel_to_ingot_steel',
+
+    'immersiveengineering:crafting/copper_ingot_to_nugget_copper',
+    'immersiveengineering:crafting/ingot_lead_to_nugget_lead',
+    'immersiveengineering:crafting/ingot_uranium_to_nugget_uranium',
+    'immersiveengineering:crafting/ingot_steel_to_nugget_steel',
+
+    'immersiveengineering:crafting/raw_block_lead_to_raw_lead',
+    'immersiveengineering:crafting/raw_block_uranium_to_raw_uranium',
+
+    'immersiveengineering:crafting/raw_lead_to_raw_block_lead',
+    'immersiveengineering:crafting/raw_uranium_to_raw_block_uranium',
 
     // Mekanism
     'mekanism:charcoal',
@@ -103,6 +129,7 @@ ServerEvents.recipes(event => {
     // Minecraft
     'minecraft:cake', // Duplicate Recipe.
     'minecraft:ladder',
+    'minecraft:furnace', // Quark provides an alternative.
 
     // Quark
     'quark:building/crafting/oak_bookshelf', // Duplicate recipe.
